@@ -13,7 +13,15 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: pkg.description }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    script: [
+      {
+        src: 'https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js'
+      },
+      {
+        src: 'https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js'
+      }
+    ]
   },
 
   /*
@@ -24,19 +32,19 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: ['ant-design-vue/dist/antd.css'],
+  css: ['~/assets/main.scss'],
 
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: ['@/plugins/antd-ui'],
+  plugins: [],
 
   /*
   ** Nuxt.js modules
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
+    // '@nuxtjs/axios',
     '@nuxtjs/pwa'
   ],
   /*

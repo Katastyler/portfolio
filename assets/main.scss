@@ -1,0 +1,217 @@
+$color1: #461467;
+$color2: #ffba57;
+$color3: lighten(#ff7655, 20%);
+$color4: lighten(#00aca0, 10%);
+$color5: #8ed3c9;
+$color6: darken(#fcf5d8, 20%);
+
+body {
+  font-size: 62.5%;
+}
+
+// App
+#app {
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(76, 76, 76, 1);
+  background: -moz-linear-gradient(-45deg, rgba(76, 76, 76, 1) 0%, rgba(43, 43, 43, 0.74) 36%, rgba(28, 28, 28, 0.5) 71%, rgba(19, 19, 19, 0.29) 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(76, 76, 76, 1)), color-stop(36%, rgba(43, 43, 43, 0.74)), color-stop(71%, rgba(28, 28, 28, 0.5)), color-stop(100%, rgba(19, 19, 19, 0.29)));
+  background: -webkit-linear-gradient(-45deg, rgba(76, 76, 76, 1) 0%, rgba(43, 43, 43, 0.74) 36%, rgba(28, 28, 28, 0.5) 71%, rgba(19, 19, 19, 0.29) 100%);
+  background: -o-linear-gradient(-45deg, rgba(76, 76, 76, 1) 0%, rgba(43, 43, 43, 0.74) 36%, rgba(28, 28, 28, 0.5) 71%, rgba(19, 19, 19, 0.29) 100%);
+  background: -ms-linear-gradient(-45deg, rgba(76, 76, 76, 1) 0%, rgba(43, 43, 43, 0.74) 36%, rgba(28, 28, 28, 0.5) 71%, rgba(19, 19, 19, 0.29) 100%);
+  background: linear-gradient(135deg, rgba(76, 76, 76, 1) 0%, rgba(43, 43, 43, 0.74) 36%, rgba(28, 28, 28, 0.5) 71%, rgba(19, 19, 19, 0.29) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4c4c4c', endColorstr='#131313', GradientType=1);
+  color: #fff;
+}
+
+// Controls
+.controls {
+  position: absolute;
+  left: 50%;
+  bottom: 40px;
+  transform: translate(-50%, 0);
+  width: 100%;
+  margin-top: 30px;
+  text-align: center;
+  padding: 0;
+
+  li {
+    opacity: 0.6;
+    cursor: pointer;
+    overflow: hidden;
+    display: inline-block;
+    height: 36px;
+    margin: 0 10px;
+    padding: 0 60px;
+    border-radius: 10px;
+    font: 1.1rem/36px Arial, sans-serif;
+    font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+    background: #505050;
+
+    &.active {
+      background: lighten(#505050, 40%);
+    }
+  }
+}
+
+// Page
+.page {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #c0c0c0;
+
+  .center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    font-size: 3rem;
+    text-align: center;
+  }
+}
+
+.labs {
+    background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 15s ease infinite;
+    -moz-animation: Gradient 15s ease infinite;
+    animation: Gradient 15s ease infinite;
+  }
+
+// Active animation
+.active-animation {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+// Page styles
+.fade {
+  background: $color1;
+}
+
+.slide {
+  background: $color2;
+}
+
+.zoom {
+  background: $color3;
+}
+
+.flipX {
+  background: $color4;
+}
+
+.flipY {
+  background: $color5;
+}
+
+.slideUp {
+  background: $color6;
+}
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+h1 {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+  font-size: 2.8rem;
+  text-transform: capitalize;
+}
+
+p {
+  font-family: 'Vollkorn', Georgia, Times, serif;
+  font-size: 1.1rem;
+}
+
+a {
+  cursor: pointer;
+  transition: color 200ms ease-out;
+  color: darken(rgba(#fff, .8), 40%);
+
+  &:hover {
+    color: darken(rgba(#fff, .8), 60%);
+  }
+}
+
+
+@keyframes fade-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes grow-left {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.agent-1, .agent-3 {
+  opacity: 0;
+  animation: fade-in-right ease 1.4s forwards;
+}
+
+.agent-2 {
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: grow-left cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.5s forwards;
+  animation-delay: 0.4s;
+}
+
+.agent-3 {
+  animation-delay: 0.4s;
+}

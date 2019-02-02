@@ -12,7 +12,7 @@ module.exports = {
     'plugin:prettier/recommended'
   ],
   plugins: [
-    'prettier'
+    //'prettier'
   ],
   // add your custom rules here
   rules: {}
