@@ -1,12 +1,30 @@
 <template>
   <transition v-on:enter="enter" v-on:leave="leave" v-bind:css="false" appear>
     <div class="main">
-      <div class="title">
-        <h1 class="agent-3">
+      <div class="title agent-1">
+        <h1>
           Hello, my name is
           <a id="my-name">Miguel Catalina</a>
         </h1>
-        <h1 class="agent-3">I'm a Full Stack web developer</h1>
+        <h1>I'm a Full Stack web developer</h1>
+        <div class="subtitle-container">
+          <p class="agent-3">
+            <img class="icon-main" src="~/static/project.svg">Expertise in all project cycle.
+          </p>
+          <p class="agent-3">
+            <img class="icon-main" src="~/static/creative.svg">Out of the box / lateral thinking.
+          </p>
+          <p class="agent-3">
+            <img class="icon-main" src="~/static/browser.svg">Passion at work.
+          </p>
+          <p class="agent-3">
+            <img class="icon-main" src="~/static/science.svg">'One man army' of web development.
+          </p>
+          <div>
+              <p class="arrow-text">Want to see more?</p>
+              <img class="arrow " src="~/static/down-arrow.svg"/>
+          </div>
+        </div>
       </div>
       <div id="canvas"/>
     </div>
@@ -52,61 +70,8 @@ export default {
     }
   },
   mounted() {
-    particlesJS('canvas', {
-      particles: {
-        number: { value: 100, density: { enable: true, value_area: 800 } },
-        color: { value: '#ffffff' },
-        shape: {
-          type: 'circle',
-          stroke: { width: 0, color: '#000000' },
-          polygon: { nb_sides: 5 },
-          image: { src: 'img/github.svg', width: 100, height: 100 }
-        },
-        opacity: {
-          value: 1,
-          random: true,
-          anim: { enable: true, speed: 1, opacity_min: 0, sync: false }
-        },
-        size: {
-          value: 3,
-          random: true,
-          anim: { enable: false, speed: 4, size_min: 0.3, sync: false }
-        },
-        line_linked: {
-          enable: false,
-          distance: 150,
-          color: '#ffffff',
-          opacity: 0.4,
-          width: 1
-        },
-        move: {
-          enable: true,
-          speed: 1,
-          direction: 'none',
-          random: true,
-          straight: false,
-          out_mode: 'out',
-          bounce: false,
-          attract: { enable: false, rotateX: 600, rotateY: 600 }
-        }
-      },
-      interactivity: {
-        detect_on: 'canvas',
-        events: {
-          onhover: { enable: true, mode: 'bubble' },
-          // onclick: { enable: true, mode: 'grab' },
-          resize: true
-        },
-        modes: {
-          grab: { distance: 400, line_linked: { opacity: 1 } },
-          bubble: { distance: 0, size: 0, duration: 2, opacity: 0, speed: 3 },
-          repulse: { distance: 400, duration: 0.4 },
-          push: { particles_nb: 4 },
-          remove: { particles_nb: 2 }
-        }
-      },
-      retina_detect: true
-    })
+    const config = require('~/assets/particles.json')
+    particlesJS('canvas', config)
   }
 }
 </script>
@@ -119,7 +84,7 @@ export default {
   text-align: center;
   height: 100%;
   top: 28%;
-  z-index: 0;  
+  z-index: 0;
 }
 
 #canvas {
@@ -127,9 +92,8 @@ export default {
 }
 
 #my-name {
-  color: firebrick;
+  color: rgb(216, 88, 42);
   position: relative;
-  color: firebrick;
   text-decoration: none;
 }
 
@@ -140,7 +104,7 @@ export default {
   height: 2px;
   bottom: -5px;
   left: 0;
-  background-color: firebrick;
+  background-color: rgb(216, 88, 42);
   visibility: hidden;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
@@ -156,5 +120,39 @@ export default {
 
 .main {
   height: 100%;
+}
+
+.subtitle-container {
+  padding: 2.6rem;
+  display: inline-block;
+}
+
+.subtitle-container p {
+  text-align: left;
+}
+
+.icon-main {
+  width: 2rem;
+  margin-bottom: -0.2rem;
+  padding-right: 0.4rem;
+}
+
+.arrow-text {
+  padding-top: 2.5rem;
+  text-align: center !important;
+  margin: 0.7rem;
+  background: linear-gradient(yellow, firebrick);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.arrow {
+  width: 3rem;
+  animation: mover .7s infinite  alternate;
+}
+
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-2px); }
 }
 </style>
