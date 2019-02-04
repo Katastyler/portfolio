@@ -2,24 +2,26 @@
   <transition v-on:enter="enter" v-on:leave="leave" v-bind:css="false" appear>
     <div class="page front">
       <div class="center">
-        <h1>Front</h1>
         <div>
           <a-row type="flex" justify="center">
-            <a-col class="project-container" v-for="project in projects" :key="project.title">
+            <a-col
+              class="project-container"
+              v-for="(project, index) in projects"
+              :key="project.title"
+            >
               <div class="text">
                 <div class="title">{{ project.title }}</div>
                 <span class="sub-title">{{ project.subtitle }}</span>
               </div>
-              <a-button type="primary" @click="showModal">Open Modal</a-button>
+              <a-button class="btn-project" ghost type="primary" @click="showModal(index)">Learn More</a-button>
+              <a-modal :footer="null" :title="project.modal.title" centered v-model="project.modal.visible" @ok="handleOk">
+                <div>
+                  {{ project.modal.description }}
+                </div>
+              </a-modal>
             </a-col>
           </a-row>
         </div>
-
-        <a-modal title="Basic Modal" centered v-model="visible" @ok="handleOk">
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-        </a-modal>
       </div>
     </div>
   </transition>
@@ -34,52 +36,63 @@ export default {
         {
           title: 'Geolocation',
           subtitle: 'Vue.js / Leaflet / Node.js',
-          moda: {
+          modal: {
+            visible: false,
             img: '',
             title: 'AA',
             subtitle: 'BB',
             description: 'CCC'
           }
-        },{
+        },
+        {
           title: 'Festivals Web search',
           subtitle: 'Vue.js / Nuxt.js / Node.js',
-          moda: {
+          modal: {
+            visible: false,
             img: '',
             title: 'AA',
             subtitle: 'BB',
             description: 'CCC'
           }
-        },{
+        },
+        {
           title: 'Desktop App Salesforce ETL',
           subtitle: 'Electron / Node.js / Vue.js',
-          moda: {
+          modal: {
+            visible: false,
             img: '',
             title: 'AA',
             subtitle: 'BB',
             description: 'CCC'
           }
-        },{
+        },
+        {
           title: 'Tagliatella Mobile App',
           subtitle: 'React / Angular / Ionic',
-          moda: {
+          modal: {
+            visible: false,
             img: '',
             title: 'AA',
             subtitle: 'BB',
             description: 'CCC'
           }
-        },{
+        },
+        {
           title: 'Marketing Landing Pages',
           subtitle: 'Pure HTLM / Pure JS',
-          moda: {
+          modal: {
+            visible: false,
             img: '',
             title: 'AA',
             subtitle: 'BB',
             description: 'CCC'
           }
-        },{
+        },
+        {
           title: 'Smart Sensor Technology Website',
           subtitle: 'Wordpress / PHP',
-          moda: {
+          modal: {
+            visible: false,
             img: '',
             title: 'AA',
             subtitle: 'BB',
@@ -114,17 +127,13 @@ export default {
         onComplete: done
       })
     },
-    showModal() {
-      this.visible = true
+    showModal(index) {
+      this.projects[index].modal.visible = true
     },
     handleOk(e) {
       console.log(e)
       this.visible = false
     }
-  },
-  mounted() {
-    console.log(this.projects);
-    
   }
 }
 </script>
@@ -145,16 +154,16 @@ export default {
 
 .project-container:hover {
   background-color: black;
-  cursor: pointer;
 }
 
 .text {
+  font-size: 1.8rem;
   top: 0;
   left: 0;
   position: relative;
   width: 100%;
   top: 0%;
-  transition: .8s;
+  transition: 0.8s;
   z-index: -1;
 }
 
@@ -169,5 +178,19 @@ export default {
 .project-container:hover .text {
   top: 10%;
   z-index: 1;
+}
+
+.project-container:hover .btn-project {
+  top: 20%;
+  z-index: 1;
+}
+
+.btn-project {
+  top: 30%;
+  left: 0;
+  position: relative;
+  width: 40%;
+  transition: 0.8s;
+  z-index: -1;
 }
 </style>

@@ -83,7 +83,7 @@ export default {
   width: 100%;
   text-align: center;
   height: 100%;
-  top: 28%;
+  top: 10vh;
   z-index: 0;
 }
 
