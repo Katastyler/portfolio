@@ -1,27 +1,21 @@
 <template>
   <transition v-on:enter="enter" v-on:leave="leave" v-bind:css="false" appear>
     <div class="page front">
-      <div class="center">
-        <h1>Front</h1>
-        <div>
-          <a-row type="flex" justify="center">
-            <a-col class="project-container" v-for="project in projects" :key="project.title">
-              <div class="text">
-                <div class="title">{{ project.title }}</div>
-                <span class="sub-title">{{ project.subtitle }}</span>
-              </div>
-              <a-button type="primary" @click="showModal">Open Modal</a-button>
-            </a-col>
-          </a-row>
-        </div>
-
-        <a-modal title="Basic Modal" centered v-model="visible" @ok="handleOk">
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-        </a-modal>
+        <a-row class="center" justify="center">
+          <a-col class="project-container" v-for="project in projects" :key="project.title">
+            <div class="text">
+              <div class="title">{{ project.title }}</div>
+              <span class="sub-title">{{ project.subtitle }}</span>
+            </div>
+            <a-button type="primary" @click="showModal">Open Modal</a-button>
+          </a-col>
+        </a-row>
       </div>
-    </div>
+      <a-modal title="Basic Modal" centered v-model="visible" @ok="handleOk">
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+      </a-modal>
   </transition>
 </template>
 
@@ -131,6 +125,10 @@ export default {
 
 
 <style>
+.front {
+  height: calc(100% - 90px);
+}
+
 .vertical-p {
   margin: 7px;
 }

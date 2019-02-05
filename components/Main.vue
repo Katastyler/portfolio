@@ -20,13 +20,13 @@
           <p class="agent-3">
             <img class="icon-main" src="~/static/science.svg">'One man army' of web development.
           </p>
-          <div>
-              <p class="arrow-text">Want to see more?</p>
-              <img class="arrow " src="~/static/down-arrow.svg"/>
-          </div>
         </div>
       </div>
       <div id="canvas"/>
+      <div class="see-more">
+        <p class="arrow-text">Want to see more?</p>
+        <img class="arrow" src="~/static/down-arrow.svg">
+      </div>
     </div>
   </transition>
 </template>
@@ -83,8 +83,9 @@ export default {
   width: 100%;
   text-align: center;
   height: 100%;
-  top: 28%;
+  top: 10vh;
   z-index: 0;
+  padding: 0.4rem;
 }
 
 #canvas {
@@ -123,7 +124,7 @@ export default {
 }
 
 .subtitle-container {
-  padding: 2.6rem;
+  padding: .6rem;
   display: inline-block;
 }
 
@@ -148,11 +149,22 @@ export default {
 
 .arrow {
   width: 3rem;
-  animation: mover .7s infinite  alternate;
+  animation: mover 0.7s infinite alternate;
 }
 
 @keyframes mover {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-2px); }
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-2px);
+  }
+}
+
+.see-more {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  bottom: 90px;
 }
 </style>

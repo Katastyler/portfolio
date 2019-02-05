@@ -1,16 +1,14 @@
 <template>
   <div id="app">
     <component :is="state.view"/>
-    <div>
-      <ul class="controls">
-        <li
-          v-for="(animation) in state.animations"
-          @click.prevent="setView(animation)"
-          v-bind:class="{ 'active': animation === state.view }"
-          :key="animation"
-        >{{ animation }}</li>
-      </ul>
-    </div>
+    <ul class="controls">
+      <li
+        v-for="(animation) in state.animations"
+        @click.prevent="setView(animation)"
+        v-bind:class="{ 'active': animation === state.view }"
+        :key="animation"
+      >{{ animation }}</li>
+    </ul>
   </div>
 </template>
 
