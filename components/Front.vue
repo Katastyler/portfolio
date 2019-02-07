@@ -23,7 +23,11 @@
           </a-row>
         </div>
       </div>
-    </div>
+      <a-modal title="Basic Modal" centered v-model="visible" @ok="handleOk">
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+      </a-modal>
   </transition>
 </template>
 
@@ -140,6 +144,10 @@ export default {
 
 
 <style>
+.front {
+  height: calc(100% - 90px);
+}
+
 .vertical-p {
   margin: 7px;
 }
