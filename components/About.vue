@@ -3,6 +3,11 @@
     <div class="page about">
       <div class="center">
         <h1>About</h1>
+        <a-row>
+          <a-col :span="12">
+            <img class="photo" src="~/static/retrato.jpg"/>
+          </a-col>
+        </a-row>
       </div>
     </div>
   </transition>
@@ -42,4 +47,7 @@ export default {
 
 
 <style>
+.photo {
+  height: 400px;
+}
 </style>
