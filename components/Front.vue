@@ -2,7 +2,6 @@
   <transition v-on:enter="enter" v-on:leave="leave" v-bind:css="false" appear>
     <div class="page front">
       <div class="center">
-        <div>
           <a-row type="flex" justify="center">
             <a-col
               class="project-container"
