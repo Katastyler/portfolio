@@ -1,15 +1,12 @@
 <template>
   <transition v-on:enter="enter" v-on:leave="leave" v-bind:css="false" appear>
     <div class="page about">
-      <div class="center">
-        <h1>About</h1>
-        <a-row>
-          <a-col :span="12">
+        <a-row class="">
+          <a-col :span="24" class="photo-container">
             <img class="photo" src="~/static/retrato.jpg"/>
           </a-col>
         </a-row>
       </div>
-    </div>
   </transition>
 </template>
 
@@ -49,5 +46,10 @@ export default {
 <style>
 .photo {
   height: 400px;
+}
+
+.photo-container {
+  padding: 5%;
+  text-align: center;
 }
 </style>
